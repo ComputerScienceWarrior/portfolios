@@ -13,6 +13,7 @@ class CreateUsers < ActiveRecord::Migration[7.1]
       t.string :state
       t.string :country
       t.string :password_digest
+      t.string :avatar_url
       
       t.timestamps
     end
