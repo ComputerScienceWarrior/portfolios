@@ -1,5 +1,5 @@
 class PortfoliosController < ApplicationController
-  before_action :find_user, only: [:index, :show, :new, :edit, :update, :destroy]
+  before_action :find_user, only: [:index, :show, :edit, :destroy]
   before_action :find_portfolio, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -10,7 +10,7 @@ class PortfoliosController < ApplicationController
   end
 
   def new
-    @portfolio = @user.build.portfolios
+    @portfolio = Portfolio.new
   end
 
   def edit
@@ -18,7 +18,7 @@ class PortfoliosController < ApplicationController
 
   def update
     if @portfolio.update(portfolio_params)
-      redirect_to user_portfolio_path(@user, @portfolio)
+      redirect_to user_portfolio_path(@portfolio.user, @portfolio)
     else
       render :edit
     end
