@@ -3,7 +3,6 @@ class ProjectsController < ApplicationController
   before_action :find_project, only: [:show, :edit, :update, :destroy]
 
   def index
-    # this is all projects that belong to the target portfolio
     @projects = @portfolio.projects
   end
 
