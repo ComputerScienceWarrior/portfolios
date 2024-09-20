@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   get '/post', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+  root 'pages#home'
 end
