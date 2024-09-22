@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     resources :portfolios
   end
 
+  post '/users/new', to: 'users#create'
+
   resources :portfolios do
     resources :projects, only: [:index, :show, :new, :edit, :update, :destroy]
   end
