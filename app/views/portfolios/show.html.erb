@@ -1,3 +1,9 @@
 <div class="portfolio-show-wrapper">
-    <h1><%= @portfolio.name %></h1>
+    <div>
+        <h1><%= @portfolio.name %></h1>
+        <%= link_to "Add Project", new_portfolio_project_path(@portfolio) %>
+    </div>
+    <div>
+
+    </div>
 </div>
