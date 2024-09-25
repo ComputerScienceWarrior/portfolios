@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   post '/users/1/portfolios/new', to: 'portfolios#create'
 
   get '/login', to: 'sessions#new'
-  get '/post', to: 'sessions#create'
+  post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   root 'pages#home'
 end
