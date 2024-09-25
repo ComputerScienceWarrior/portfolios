@@ -1,0 +1,13 @@
+/* PORTFOLIO SHOW PAGE */
+.portfolio-show-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+/*  NEW PORTFOLIO FORM */
+.new-portfolio-form-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: fit-content;
+  }
