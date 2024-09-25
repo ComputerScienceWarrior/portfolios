@@ -14,6 +14,7 @@ ActiveRecord::Schema[7.1].define(version: 3) do
   create_table "portfolios", force: :cascade do |t|
     t.string "name"
     t.string "type"
+    t.string "template"
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

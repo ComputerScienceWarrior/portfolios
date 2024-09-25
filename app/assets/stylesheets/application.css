@@ -6,3 +6,11 @@
 .header {
   text-align: center;
 }
+
+/*  PORTFOLIO FORM */
+.new-portfolio-form-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: fit-content;
+}
