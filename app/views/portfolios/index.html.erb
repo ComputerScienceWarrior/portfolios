@@ -1,3 +1,11 @@
-<% @portfolios.each do |portfolio| %>
-    <%= link_to portfolio.name, user_portfolio_path(portfolio.user, portfolio)%>
-<% end %>
+<div>
+    <div class="portfolios-wrapper">
+        <h2>Portfolios</h2>
+        <% @portfolios.each.with_index(1) do |portfolio, i| %>
+            <div class="portfolio-card">
+                <%= i%>. <%= link_to portfolio.name, user_portfolio_path(portfolio.user, portfolio)%>
+            </div>
+        <% end %>
+    </div>
+</div>    
+
