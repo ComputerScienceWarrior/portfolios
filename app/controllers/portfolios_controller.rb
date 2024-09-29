@@ -46,7 +46,8 @@ class PortfoliosController < ApplicationController
   end
 
   def find_user
-    @user = User.find(params[:user_id])
+    @portfolio = Portfolio.find(params[:id])
+    @user = User.find(@portfolio.user.id)
   end
 
   def portfolio_params
