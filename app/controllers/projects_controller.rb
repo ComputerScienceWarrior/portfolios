@@ -17,7 +17,7 @@ class ProjectsController < ApplicationController
     project = Project.new(project_params)
 
     if project.save
-      redirect_to project_path project
+      redirect_to portfolio_project_path(project.portfolio, project)
     else
       render :new
     end
@@ -38,7 +38,7 @@ class ProjectsController < ApplicationController
     portfolio = @project.portfolio
     @project.destroy
 
-    redirect_to porfolio_path portfolio
+    redirect_to user_portfolio_path(current_user, portfolio)
   end
 
   private
@@ -48,6 +48,10 @@ class ProjectsController < ApplicationController
   end
 
   def find_portfolio
-    @portfolio = portfolio.find(params[:portfolio_id]) 
+    @portfolio = Portfolio.find(params[:portfolio_id]) 
+  end
+
+  def project_params
+    params.require(:project).permit(:title, :caption, :description, :thumbnail_url, :portfolio_id)
   end
 end
