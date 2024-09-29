@@ -9,7 +9,8 @@ Rails.application.routes.draw do
     resources :projects, only: [:index, :show, :new, :edit, :update, :destroy]
   end
 
-  post '/users/1/portfolios/new', to: 'portfolios#create'
+  post '/users/:id/portfolios/new', to: 'portfolios#create'
+  post '/portfolios/:id/projects/new', to: 'projects#create'
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
