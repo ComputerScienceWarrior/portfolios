@@ -1,0 +1,12 @@
+<div class="portfolio-form-wrapper">
+  <%= f.label 'Portfolio Name' %>
+  <%= f.text_field :name %>
+  <br/>
+
+  <%= f.label "Choose a Template" %>
+  <%= f.select :template, options_for_select([['Template 1', 'template_1'], ['Template 2', 'template_2'], ['Template 3', 'template_3']], f.object.template) %>
+  <%= f.hidden_field :user_id, value: @user.id %>
+  <br/>
+
+  <%= f.submit f.object.new_record? ? 'Create Portfolio' : 'Update Portfolio' %>
+</div>
