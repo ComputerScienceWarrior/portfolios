@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :projects, only: [:index, :show, :new, :edit, :update, :destroy]
   end
 
+  resources :projects
+
   post '/users/:id/portfolios/new', to: 'portfolios#create'
   post '/portfolios/:id/projects/new', to: 'projects#create'
 
