@@ -11,18 +11,19 @@ class PortfoliosController < ApplicationController
 
   def new
     @portfolio = Portfolio.new
-    @user = User.find_by(params[:user_id])
+    @user = User.find(params[:user_id])
   end
 
   def create
     portfolio = Portfolio.new(portfolio_params)
-    if portfolio.save
+
+    if portfolio.save!
       redirect_to user_portfolio_path(portfolio.user, portfolio)
     else
       render :new
     end
   end
-
+  
   def edit
   end
 
