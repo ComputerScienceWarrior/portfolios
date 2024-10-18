@@ -18,7 +18,7 @@
         </div>
 
         <div class="text-center">
-            <%= link_to "Edit Project", edit_portfolio_project_path(@project), class: 'btn btn-warning' %>
+            <%= link_to "Edit Project", edit_portfolio_project_path(@project.portfolio, @project), class: 'btn btn-warning' %>
             <%= link_to "Back to Portfolio", user_portfolio_path(@project.portfolio.user, @project.portfolio_id), class: 'btn btn-secondary ml-2' %>
             <%= button_to 'Remove Project', portfolio_project_path(@project.portfolio_id, @project), class: 'btn btn-danger', method: :delete %>
         </div>
