@@ -1,0 +1,5 @@
+<%= form_for :user do |f| %>
+    <%= f.text_field :username, class: 'form-control col-xs-3 form-inputs' %>
+    <%= f.text_field :password, class: 'form-control form-inputs', type: 'password' %>
+    <%= f.submit "Login", class: 'btn btn-outline-success' %>
+<% end %>

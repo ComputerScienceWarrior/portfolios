@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
-  before_action :find_portfolio, only: [:index]
   before_action :find_project, only: [:show, :edit, :update, :destroy]
+  before_action :find_portfolio, only: [:index, :new]
 
   def index
     @projects = @portfolio.projects
@@ -10,14 +10,14 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    @project = Project.new
+    @project = Project.new(portfolio_id: params[:portfolio_id])
   end
 
   def create
     project = Project.new(project_params)
 
     if project.save
-      redirect_to project_path project
+      redirect_to portfolio_project_path(project.portfolio, project)
     else
       render :new
     end
@@ -28,7 +28,7 @@ class ProjectsController < ApplicationController
 
   def update
     if @project.update(project_params)
-      redirect_to project_path project
+      redirect_to project_path @project
     else
       render :edit
     end
@@ -38,7 +38,7 @@ class ProjectsController < ApplicationController
     portfolio = @project.portfolio
     @project.destroy
 
-    redirect_to porfolio_path portfolio
+    redirect_to user_portfolio_path(current_user, portfolio)
   end
 
   private
@@ -48,6 +48,10 @@ class ProjectsController < ApplicationController
   end
 
   def find_portfolio
-    @portfolio = portfolio.find(params[:portfolio_id]) 
+    @portfolio = Portfolio.find(params[:portfolio_id]) 
+  end
+
+  def project_params
+    params.require(:project).permit(:title, :caption, :description, :thumbnail_url, :portfolio_id)
   end
 end

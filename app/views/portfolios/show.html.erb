@@ -1,0 +1,23 @@
+<div class="portfolio-show-wrapper container">
+    <div class="text-center mb-4">
+        <h1><%= @portfolio.name %></h1>
+        <%= link_to "Add Project", new_portfolio_project_path(@portfolio), class: 'btn btn-primary' %>
+    </div>
+
+    <div class="row">
+        <% @portfolio.projects.each do |project| %>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm text-center">
+                    <%= image_tag project.thumbnail_url, class: 'card-img-top img-fluid', alt: project.title %>
+                    <div class="card-body">
+                        <h5 class="card-title"><%= project.title %></h5>
+                        <p class="card-text"><%= project.caption %></p>
+                        <div class="text-center">
+                            <%= link_to "View Project", portfolio_project_path(@portfolio, project), class: 'btn btn-info' %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>

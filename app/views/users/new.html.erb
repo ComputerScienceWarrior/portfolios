@@ -1,0 +1,5 @@
+<%= form_with(model: @user, local: true) do |form| %>
+  <%= render 'form', form: form %>
+<% end %>
+
+<%= link_to 'Back to Users', users_path, class: 'btn btn-secondary' %>

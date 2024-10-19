@@ -14,6 +14,7 @@ ActiveRecord::Schema[7.1].define(version: 3) do
   create_table "portfolios", force: :cascade do |t|
     t.string "name"
     t.string "type"
+    t.string "template"
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -39,7 +40,6 @@ ActiveRecord::Schema[7.1].define(version: 3) do
     t.string "phone_number"
     t.string "address_line_1"
     t.string "address_line_2"
-    t.string "address_line_3"
     t.string "zipcode"
     t.string "state"
     t.string "country"

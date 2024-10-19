@@ -11,8 +11,19 @@ class PortfoliosController < ApplicationController
 
   def new
     @portfolio = Portfolio.new
+    @user = User.find(params[:user_id])
   end
 
+  def create
+    portfolio = Portfolio.new(portfolio_params)
+
+    if portfolio.save!
+      redirect_to user_portfolio_path(portfolio.user, portfolio)
+    else
+      render :new
+    end
+  end
+  
   def edit
   end
 
@@ -25,7 +36,7 @@ class PortfoliosController < ApplicationController
   end
 
   def destroy
-    @porfolio.destroy
+    @portfolio.destroy
     redirect_to user_path @user
   end
 
@@ -40,6 +51,6 @@ class PortfoliosController < ApplicationController
   end
 
   def portfolio_params
-    params.require(:portfolio).permit(:name, :type, :user_id)
+    params.require(:portfolio).permit(:name, :type, :template, :user_id)
   end
 end
